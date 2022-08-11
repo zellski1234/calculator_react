@@ -46,22 +46,41 @@ function App() {
 	}
 
 
-	const createDigits= () =>{
-		const digits = [];
-		// creates digits and buttons between 1-9
-		for (let i = 1; i < 10; i++){
-			digits.push(
-				// .toString() coverts digits to strings
-				<button 
-					onClick={() => updateCalc(i.toString())} 
-					key={i}>
-					{i}
-				</button>
-			)
-		}
+	// const createDigits= () =>{
+	// 	const digits = [];
+	// 	// creates digits and buttons between 1-9
+	// 	for (let i = 1; i < 10; i++){
+	// 		digits.push(
+	// 			// .toString() coverts digits to strings
+	// 			<button 
+	// 				onClick={() => updateCalc(i.toString())} 
+	// 				key={i}>
+	// 				{i}
+	// 			</button>
+	// 		)
+	// 	}
 
-		return digits;
-	}
+	// 	return digits;
+	// }
+
+	// <div id="calcButtonDiv2">
+    //         {calcArray2.map((num2, index2) => {
+    //           return <Buttons2 key={index2} updateCalc={()=> updateCalc()} num2={num2} />
+    //         })}
+	// </div>
+
+	// function createDigits () {
+	// 	const digits = [1,2,3,4,5,6,7,9]
+	// 	digits.map((num, index) => {
+	// 		return (	
+	// 			<button onClick={() => updateCalc(num)}>
+	// 				{num}
+	// 			</button>
+	// 			)
+	// 		}
+	// 	)
+	// 	return digits;
+	// }
 
 	return (
 		<div className="App">
@@ -89,7 +108,7 @@ function App() {
 				</div>
 
 				<div className="digits">
-					{ createDigits() }
+					<CreateDigits updateCalc={updateCalc}/>
 					<button onClick={() => updateCalc('0')}
 					>0</button>
 					<button onClick={() => updateCalc('.')}
@@ -102,4 +121,27 @@ function App() {
 	);
 }
 
+const CreateDigits = (props) =>{
+
+
+	const digits = [1,2,3,4,5,6,7,8,9]
+
+	return(
+		<>
+			{digits.map((num, index) => {
+			return <button key={index} onClick={() => props.updateCalc(num)}>{num}</button>
+			})}
+		</>
+	)
+
+
+        //   {calcArray2.map((num2, index2) => {
+        //       return <Buttons2 key={index2} updateCalc={()=> updateCalc()} num2={num2} />
+        //     })}
+	}
+
 export default App;
+
+
+
+
